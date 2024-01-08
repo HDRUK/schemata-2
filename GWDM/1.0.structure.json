@@ -1,0 +1,630 @@
+[
+      {
+            "name": "required",
+            "required": true,
+            "title": "Required",
+            "description": "required metadata needed for the GWDM",
+            "examples": null,
+            "type": "Required",
+            "subItems": [
+                  {
+                        "name": "gatewayId",
+                        "required": true,
+                        "title": "Gatewayid",
+                        "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
+                        "examples": null,
+                        "type": "str"
+                  },
+                  {
+                        "name": "gatewayPid",
+                        "required": true,
+                        "title": "Gatewaypid",
+                        "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
+                        "examples": null,
+                        "type": "str"
+                  },
+                  {
+                        "name": "issued",
+                        "required": true,
+                        "title": "Issued",
+                        "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                        "examples": null,
+                        "type": "datetime"
+                  },
+                  {
+                        "name": "modified",
+                        "required": true,
+                        "title": "Modified",
+                        "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                        "examples": null,
+                        "type": "datetime"
+                  },
+                  {
+                        "name": "revisions",
+                        "required": true,
+                        "title": "Revisions",
+                        "description": null,
+                        "examples": null,
+                        "type": "Revision",
+                        "subItems": [
+                              {
+                                    "name": "version",
+                                    "required": true,
+                                    "title": "revision version",
+                                    "description": "Version number used for previous version of this dataset",
+                                    "examples": null,
+                                    "type": "str"
+                              },
+                              {
+                                    "name": "url",
+                                    "required": true,
+                                    "title": "revision url",
+                                    "description": "Some url with a reference to the record of a previous version of this dataset",
+                                    "examples": null,
+                                    "type": "Url",
+                                    "subItems": []
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "summary",
+            "required": true,
+            "title": "Summary",
+            "description": "Summary of metadata describing key pieces of information.",
+            "examples": null,
+            "type": "Summary",
+            "subItems": [
+                  {
+                        "name": "title",
+                        "required": true,
+                        "title": "Title",
+                        "description": "The main title of the dataset",
+                        "examples": null,
+                        "type": "TwoHundredFiftyFiveCharacters",
+                        "subItems": []
+                  },
+                  {
+                        "name": "shortTitle",
+                        "required": true,
+                        "title": "Shorttitle",
+                        "description": "A shorter descriptive title of the dataset",
+                        "examples": null,
+                        "type": "ShortTitle",
+                        "subItems": []
+                  },
+                  {
+                        "name": "doiName",
+                        "required": true,
+                        "title": "Doiname",
+                        "description": "DOI associated to this dataset",
+                        "examples": null,
+                        "type": "Doi",
+                        "subItems": []
+                  },
+                  {
+                        "name": "abstract",
+                        "required": true,
+                        "title": "Abstract",
+                        "description": "Longer abstract detailing the dataset.",
+                        "examples": null,
+                        "type": "LongAbstractText",
+                        "subItems": []
+                  },
+                  {
+                        "name": "keywords",
+                        "required": true,
+                        "title": "Keywords",
+                        "description": "Comma separated key words associated to this dataset.",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "controlledKeywords",
+                        "required": true,
+                        "title": "Controlled Keywords",
+                        "description": "Keywords that have been filtered and limited",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "contactPoint",
+                        "required": true,
+                        "title": "Contact Point",
+                        "description": "email of a person who can be the main contact point of this dataset",
+                        "examples": null,
+                        "type": "EmailStr"
+                  },
+                  {
+                        "name": "datasetType",
+                        "required": true,
+                        "title": "Dataset type",
+                        "description": "What type of dataset is this?",
+                        "examples": null,
+                        "type": "DatasetType",
+                        "subItems": []
+                  },
+                  {
+                        "name": "description",
+                        "required": true,
+                        "title": "Description",
+                        "description": "Longer description of the dataset in detail",
+                        "examples": null,
+                        "type": "LongDescription",
+                        "subItems": []
+                  },
+                  {
+                        "name": "publisher",
+                        "required": true,
+                        "title": "Publisher",
+                        "description": "Link to details about the publisher of this dataset",
+                        "examples": null,
+                        "type": "Publisher",
+                        "subItems": [
+                              {
+                                    "name": "publisherName",
+                                    "required": true,
+                                    "title": "Publisher name",
+                                    "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                                    "examples": null,
+                                    "type": "Name",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "publisherGatewayId",
+                                    "required": false,
+                                    "title": "Publisher gateway id",
+                                    "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                                    "examples": null,
+                                    "type": "str"
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "coverage",
+            "required": false,
+            "title": "Coverage",
+            "description": "Spatial and Temporal coverage",
+            "examples": null,
+            "type": "Coverage",
+            "subItems": [
+                  {
+                        "name": "spatial",
+                        "required": false,
+                        "title": "Spatial",
+                        "description": "List of countries where the data was taken from",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "physicalSampleAvailability",
+                        "required": false,
+                        "title": "Physical Sample Availability",
+                        "description": "A list of what the dataset actually contains in terms of sample measurements",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "pathway",
+                        "required": false,
+                        "title": "Pathway",
+                        "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "examples": null,
+                        "type": "LongDescription",
+                        "subItems": []
+                  },
+                  {
+                        "name": "followup",
+                        "required": false,
+                        "title": "Followup",
+                        "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
+                        "examples": null,
+                        "type": "Followup"
+                  },
+                  {
+                        "name": "typicalAgeRange",
+                        "required": false,
+                        "title": "Typical Age Range",
+                        "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                        "examples": null,
+                        "type": "AgeRange",
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "provenance",
+            "required": false,
+            "title": "Provenance",
+            "description": "Provenance information",
+            "examples": null,
+            "type": "Provenance",
+            "subItems": [
+                  {
+                        "name": "origin",
+                        "required": false,
+                        "title": null,
+                        "description": null,
+                        "examples": null,
+                        "type": "Origin",
+                        "subItems": [
+                              {
+                                    "name": "purpose",
+                                    "required": false,
+                                    "title": "Purpose",
+                                    "description": "Indicates the purpose(s) that the dataset was collected.",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "source",
+                                    "required": false,
+                                    "title": "Source",
+                                    "description": "Indicates the source of the data extraction",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "collectionSituation",
+                                    "required": false,
+                                    "title": "Setting",
+                                    "description": "Indicate the setting(s) where data was collected. Multiple settings may be provided",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "temporal",
+                        "required": true,
+                        "title": null,
+                        "description": null,
+                        "examples": null,
+                        "type": "Temporal",
+                        "subItems": [
+                              {
+                                    "name": "startDate",
+                                    "required": true,
+                                    "title": "Start Date",
+                                    "description": "The start of the time period that the dataset provides coverage for",
+                                    "examples": null,
+                                    "type": "date"
+                              },
+                              {
+                                    "name": "endDate",
+                                    "required": false,
+                                    "title": "End Date",
+                                    "description": "The end of the time period that the dataset provides coverage for",
+                                    "examples": null,
+                                    "type": "date"
+                              },
+                              {
+                                    "name": "timeLag",
+                                    "required": true,
+                                    "title": "Time Lag",
+                                    "description": "Rypical time-lag between an event and the data for that event appearing in the dataset",
+                                    "examples": null,
+                                    "type": "TimeLag"
+                              },
+                              {
+                                    "name": "accrualPeriodicity",
+                                    "required": true,
+                                    "title": "Periodicity",
+                                    "description": "frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.",
+                                    "examples": null,
+                                    "type": "Periodicity"
+                              },
+                              {
+                                    "name": "distributionReleaseDate",
+                                    "required": false,
+                                    "title": "Release Date",
+                                    "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity.",
+                                    "examples": null,
+                                    "type": "date"
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "accessibility",
+            "required": false,
+            "title": "Accessibility",
+            "description": "Accessibility information.",
+            "examples": null,
+            "type": "Accessibility",
+            "subItems": [
+                  {
+                        "name": "usage",
+                        "required": false,
+                        "title": "Usage",
+                        "description": "This section includes information about how the data can be used and how it is currently being used",
+                        "examples": null,
+                        "type": "Usage",
+                        "subItems": [
+                              {
+                                    "name": "dataUseLimitation",
+                                    "required": true,
+                                    "title": "Data Use Limitation",
+                                    "description": "Any restrictions to its usage",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataUseRequirement",
+                                    "required": true,
+                                    "title": "Data Use Requirements",
+                                    "description": "Any requirements needed for data usage",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "resourceCreator",
+                                    "required": false,
+                                    "title": "Resource Creator",
+                                    "description": "Who has created this resource",
+                                    "examples": null,
+                                    "type": "ShortDescription",
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "access",
+                        "required": true,
+                        "title": "Access",
+                        "description": "This section includes information about data access",
+                        "examples": null,
+                        "type": "Access",
+                        "subItems": [
+                              {
+                                    "name": "accessRights",
+                                    "required": true,
+                                    "title": "Access Rights",
+                                    "description": "Optional link(s) or a description of where the license associated to accessing this dataset",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "accessService",
+                                    "required": false,
+                                    "title": "Access Service",
+                                    "description": "",
+                                    "examples": null,
+                                    "type": "LongDescription",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "accessRequestCost",
+                                    "required": false,
+                                    "title": "Organisation Access Request Cost",
+                                    "description": "",
+                                    "examples": null,
+                                    "type": "LongDescription",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "deliveryLeadTime",
+                                    "required": false,
+                                    "title": "Access Request Duration",
+                                    "description": "An arbitrary guess at the time to gain access to the dataset...",
+                                    "examples": null,
+                                    "type": "DeliveryLeadTime"
+                              },
+                              {
+                                    "name": "jurisdiction",
+                                    "required": true,
+                                    "title": "Jurisdiction",
+                                    "description": "Comma separated country codes of where the data jurisdiction is.",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataController",
+                                    "required": true,
+                                    "title": "Data Controller",
+                                    "description": "Name of the data controller",
+                                    "examples": null,
+                                    "type": "LongDescription",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataProcessor",
+                                    "required": false,
+                                    "title": "Data Processor",
+                                    "description": "Name of the data processors",
+                                    "examples": null,
+                                    "type": "LongDescription",
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "formatAndStandards",
+                        "required": false,
+                        "title": "Format and Standards",
+                        "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
+                        "examples": null,
+                        "type": "FormatAndStandards",
+                        "subItems": [
+                              {
+                                    "name": "vocabularyEncodingSchemes",
+                                    "required": true,
+                                    "title": "Controlled Vocabulary",
+                                    "description": "Code value of the ontology vocabulary encoding",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "conformsTo",
+                                    "required": true,
+                                    "title": "Conforms To",
+                                    "description": "What the vocabulary conforms to.",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "languages",
+                                    "required": true,
+                                    "title": "Language Code(s)",
+                                    "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "formats",
+                                    "required": true,
+                                    "title": "Dataset Format",
+                                    "description": "Format(s) the dataset can be made available in",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "linkage",
+            "required": false,
+            "title": "Linkage",
+            "description": "Linkage and enrichment.",
+            "examples": null,
+            "type": "Linkage",
+            "subItems": [
+                  {
+                        "name": "isGeneratedUsing",
+                        "required": false,
+                        "title": "Is Generated Using",
+                        "description": "??",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "associatedMedia",
+                        "required": false,
+                        "title": "Associated Media",
+                        "description": "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "dataUses",
+                        "required": false,
+                        "title": "Data Uses",
+                        "description": "??",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "isReferenceIn",
+                        "required": false,
+                        "title": "Is Reference in",
+                        "description": "Rhe keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "tools",
+                        "required": false,
+                        "title": "Tools",
+                        "description": "URL of any analysis tools or models that have been created for this dataset and are available for further use",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "datasetLinkage",
+                        "required": false,
+                        "title": "Dataset Linkage",
+                        "description": "Dataset Linkage copied over from",
+                        "examples": null,
+                        "type": "DatasetLinkage",
+                        "subItems": [
+                              {
+                                    "name": "isDerivedFrom",
+                                    "required": false,
+                                    "title": "Derivations",
+                                    "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "isPartOf",
+                                    "required": false,
+                                    "title": "Is PartOf",
+                                    "description": "If the dataset is part of a group or family",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "isMemberOf",
+                                    "required": false,
+                                    "title": "Is MemberOf",
+                                    "description": "Dataset is a member of XXX(?)",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "linkedDatasets",
+                                    "required": false,
+                                    "title": "Linked Datasets",
+                                    "description": "Links to other datasets.",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "investigations",
+                        "required": false,
+                        "title": "Investigations",
+                        "description": "Please provide the keystone paper associated with the dataset.",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "observations",
+            "required": false,
+            "title": "Observations",
+            "description": "Obsservations",
+            "examples": null,
+            "type": "Observation"
+      },
+      {
+            "name": "structuralMetadata",
+            "required": false,
+            "title": "Structural Metadata",
+            "description": "Descriptions of all tables and data elements that can be included in the dataset",
+            "examples": null,
+            "type": "DataTable"
+      }
+]
