@@ -1,0 +1,43 @@
+[data-md-color-scheme="hdruk"] {    
+    --md-primary-fg-color:white;
+    --md-primary-fg-color--dark:  #3db28c;
+
+    --md-primary-bg-color: #3c3c3b;
+    --md-typeset-a-color: #3db28c;
+
+    --md-footer-bg-color: #475da7;
+
+}
+
+.md-button--primary{
+    color: white !important;
+    background-color: #475da7 !important;
+}
+
+.md-button--secondary{
+    color: white !important;
+    background-color: #3db28c !important;
+}
+
+.center{
+    margin: auto !important;
+}
+
+:root {
+  --md-admonition-icon--hdruk: url('/images/favicon.png')
+}
+.md-typeset .admonition.hdruk,
+.md-typeset details.hdruk {
+  border-color: #475da7;
+}
+.md-typeset .hdruk > .admonition-title,
+.md-typeset .hdruk > summary {
+    background-color: #475da788;
+}
+.md-typeset .hdruk > .admonition-title::before,
+.md-typeset .hdruk > summary::before {
+  background-color: #475da7;
+  -webkit-mask-image: var(--md-admonition-icon--hdruk);
+          mask-image: var(--md-admonition-icon--hdruk);
+}
+

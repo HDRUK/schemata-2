@@ -1,0 +1,1214 @@
+{
+      "schema_fields": [
+            {
+                  "required": true,
+                  "title": "Dataset identifier",
+                  "description": "System dataset identifier",
+                  "guidance": "",
+                  "examples": [
+                        "226fb3f1-4471-400a-8c39-2b66d46a39b6",
+                        "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                        "title": "Uuidv4",
+                        "type": "string"
+                  },
+                  "location": "identifier"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Version",
+                  "description": "Dataset metadata version",
+                  "guidance": "",
+                  "examples": [
+                        "1.1.0"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$",
+                        "title": "Semver",
+                        "type": "string"
+                  },
+                  "location": "version"
+            },
+            {
+                  "required": true,
+                  "title": "revision version",
+                  "description": "Version number used for previous version of this dataset",
+                  "guidance": "",
+                  "examples": [
+                        "6.0.0"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$",
+                        "title": "Semver",
+                        "type": "string"
+                  },
+                  "location": "revisions.version"
+            },
+            {
+                  "required": true,
+                  "title": "revision url",
+                  "description": "Some url with a reference to the record of a previous version of this dataset",
+                  "guidance": "",
+                  "examples": [
+                        "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "revisions.url"
+            },
+            {
+                  "required": true,
+                  "title": "Metadata Issued Datetime",
+                  "description": "Datetime stamp of when this metadata version was initially issued",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "datetime",
+                  "location": "issued"
+            },
+            {
+                  "required": true,
+                  "title": "Last Modified Datetime",
+                  "description": "Datetime stamp of when this metadata was last modified",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "datetime",
+                  "location": "modified"
+            },
+            {
+                  "required": true,
+                  "title": "Title",
+                  "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+                  "guidance": "",
+                  "examples": [
+                        "North West London COVID-19 Patient Level Situation Report"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "summary.title"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Abstract",
+                  "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
+                  "guidance": "",
+                  "examples": [
+                        "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "AbstractText",
+                        "maxLength": 500,
+                        "minLength": 5,
+                        "type": "string"
+                  },
+                  "location": "summary.abstract"
+            },
+            {
+                  "required": false,
+                  "title": "Organisation Identifier",
+                  "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "summary.publisher.identifier"
+            },
+            {
+                  "required": true,
+                  "title": "Organisation Name",
+                  "description": "Name of the organisation",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "summary.publisher.name"
+            },
+            {
+                  "required": false,
+                  "title": "Organisation Logo",
+                  "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "summary.publisher.logo"
+            },
+            {
+                  "required": false,
+                  "title": "Organisation Description",
+                  "description": "Please provide a URL that describes the organisation.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Description",
+                        "maxLength": 10000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.publisher.description"
+            },
+            {
+                  "required": true,
+                  "title": "Organisation Contact Point",
+                  "description": "Organisation contact point(s)",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "EmailAddress",
+                        "format": "email",
+                        "type": "string"
+                  },
+                  "location": "summary.publisher.contactPoint"
+            },
+            {
+                  "required": false,
+                  "title": "Organisation Membership",
+                  "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "HUB",
+                              "ALLIANCE",
+                              "OTHER",
+                              "NCS"
+                        ]
+                  },
+                  "location": "summary.publisher.memberOf"
+            },
+            {
+                  "required": true,
+                  "title": "Contact Point",
+                  "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
+                  "guidance": "",
+                  "examples": [
+                        "SAILDatabank@swansea.ac.uk"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "EmailAddress",
+                        "format": "email",
+                        "type": "string"
+                  },
+                  "location": "summary.contactPoint"
+            },
+            {
+                  "required": true,
+                  "title": "Keywords",
+                  "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                  "guidance": "",
+                  "examples": [
+                        "Preprints,Papers,HDR UK"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "summary.keywords"
+            },
+            {
+                  "required": false,
+                  "title": "Alternate dataset identifiers",
+                  "description": "Alternate dataset identifiers or local identifiers",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "summary.alternateIdentifiers"
+            },
+            {
+                  "required": false,
+                  "title": "DOI Name",
+                  "description": "DOI associated to this dataset",
+                  "guidance": "",
+                  "examples": [
+                        "10.1093/ije/dyx196"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Doi",
+                        "pattern": "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$",
+                        "type": "string"
+                  },
+                  "location": "summary.doiName"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Type",
+                  "description": "Placeholder for dataset type\"",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "DatasetType",
+                        "maxLength": 100,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.datasetType"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Sub-type",
+                  "description": "Placeholder for dataset sub-type",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "DatasetType",
+                        "maxLength": 100,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.datasetSubType"
+            },
+            {
+                  "required": true,
+                  "title": "Population size",
+                  "description": "Summary population size of the cohort",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "int",
+                  "location": "summary.populationSize"
+            },
+            {
+                  "required": false,
+                  "title": "Description",
+                  "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Description",
+                        "maxLength": 10000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "documentation.description"
+            },
+            {
+                  "required": false,
+                  "title": "Associated Media",
+                  "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                  "guidance": "",
+                  "examples": [
+                        "PDF Document that describes study protocol"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "documentation.associatedMedia"
+            },
+            {
+                  "required": false,
+                  "title": "Group",
+                  "description": "Please complete only if the dataset is part of a group or family",
+                  "guidance": "",
+                  "examples": [
+                        "Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)."
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "documentation.isPartOf"
+            },
+            {
+                  "required": false,
+                  "title": "Geographic Coverage",
+                  "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
+                  "guidance": "",
+                  "examples": [
+                        "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "coverage.spatial"
+            },
+            {
+                  "required": false,
+                  "title": "Age Range",
+                  "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                  "guidance": "",
+                  "examples": [
+                        "18-90"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "AgeRange",
+                        "pattern": "Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])",
+                        "type": "string"
+                  },
+                  "location": "coverage.typicalAgeRange"
+            },
+            {
+                  "required": false,
+                  "title": "Followup",
+                  "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "0 - 6 MONTHS",
+                              "6 - 12 MONTHS",
+                              "1 - 10 YEARS",
+                              "> 10 YEARS",
+                              "UNKNOWN",
+                              "CONTINUOUS",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "coverage.followup"
+            },
+            {
+                  "required": false,
+                  "title": "Pathway",
+                  "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Description",
+                        "maxLength": 10000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "coverage.pathway"
+            },
+            {
+                  "required": false,
+                  "title": "Gender",
+                  "description": "Male, Female, Other",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Male",
+                              "Female",
+                              "Other"
+                        ]
+                  },
+                  "location": "coverage.gender"
+            },
+            {
+                  "required": false,
+                  "title": "Biological Samples",
+                  "description": "Blood, Saliva, Urine, Other",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Blood",
+                              "Other",
+                              "Urine",
+                              "Saliva"
+                        ]
+                  },
+                  "location": "coverage.biologicalsamples"
+            },
+            {
+                  "required": false,
+                  "title": "Psychological",
+                  "description": "Mental health, Cognitive function",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Cognitive Function",
+                              "Mental Health"
+                        ]
+                  },
+                  "location": "coverage.psychological"
+            },
+            {
+                  "required": false,
+                  "title": "Physical",
+                  "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Respiratory",
+                              "Vision",
+                              "Hearing",
+                              "Musculoskeletal",
+                              "Cardiovascular",
+                              "Reproductive"
+                        ]
+                  },
+                  "location": "coverage.physical"
+            },
+            {
+                  "required": false,
+                  "title": "Anthropometric",
+                  "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Blood Pressure",
+                              "Hip Circumference",
+                              "Height",
+                              "Waist Circumference",
+                              "Weight"
+                        ]
+                  },
+                  "location": "coverage.anthropometric"
+            },
+            {
+                  "required": false,
+                  "title": "Lifestyle",
+                  "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Smoking",
+                              "Dietary Habits",
+                              "Physical Activity",
+                              "Alcohol"
+                        ]
+                  },
+                  "location": "coverage.lifestyle"
+            },
+            {
+                  "required": false,
+                  "title": "Socio-economic",
+                  "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Finances",
+                              "Family Circumstances",
+                              "Housing",
+                              "Education",
+                              "Marital Status",
+                              "Occupation",
+                              "Ethnic Group",
+                              "Social Support"
+                        ]
+                  },
+                  "location": "coverage.socioeconomic"
+            },
+            {
+                  "required": false,
+                  "title": "Purpose",
+                  "description": "Please indicate the purpose(s) that the dataset was collected.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.purpose"
+            },
+            {
+                  "required": false,
+                  "title": "Source",
+                  "description": "Please indicate the source of the data extraction",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.source"
+            },
+            {
+                  "required": false,
+                  "title": "Collection Situation Setting",
+                  "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.collectionSituation"
+            },
+            {
+                  "required": false,
+                  "title": "Release Date",
+                  "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.distributionReleaseDate"
+            },
+            {
+                  "required": true,
+                  "title": "Start Date",
+                  "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.startDate"
+            },
+            {
+                  "required": false,
+                  "title": "End Date",
+                  "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.endDate"
+            },
+            {
+                  "required": true,
+                  "title": "Time Lag",
+                  "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "LESS 1 WEEK",
+                              "1-2 WEEKS",
+                              "2-4 WEEKS",
+                              "1-2 MONTHS",
+                              "2-6 MONTHS",
+                              "MORE 6 MONTHS",
+                              "VARIABLE",
+                              "NO TIMELAG",
+                              "NOT APPLICABLE",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "provenance.temporal.timeLag"
+            },
+            {
+                  "required": true,
+                  "title": "Publishing Frequency",
+                  "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "STATIC",
+                              "IRREGULAR",
+                              "CONTINUOUS",
+                              "BIENNIAL",
+                              "ANNUAL",
+                              "BIANNUAL",
+                              "QUARTERLY",
+                              "BIMONTHLY",
+                              "MONTHLY",
+                              "BIWEEKLY",
+                              "WEEKLY",
+                              "SEMIWEEKLY",
+                              "DAILY",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "provenance.temporal.publishingFrequency"
+            },
+            {
+                  "required": false,
+                  "title": "Data Use Limitation",
+                  "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.dataUseLimitation"
+            },
+            {
+                  "required": false,
+                  "title": "Data Use Requirements",
+                  "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.dataUseRequirements"
+            },
+            {
+                  "required": false,
+                  "title": "Citation Requirements'",
+                  "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "ShortDescription",
+                        "maxLength": 1000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.resourceCreator"
+            },
+            {
+                  "required": false,
+                  "title": "Investigations",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.investigations"
+            },
+            {
+                  "required": false,
+                  "title": "Citations",
+                  "description": "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Doi",
+                        "pattern": "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.isReferencedBy"
+            },
+            {
+                  "required": true,
+                  "title": "Access Rights",
+                  "description": "Please provide details for the data access rights",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessRights"
+            },
+            {
+                  "required": false,
+                  "title": "Access Service",
+                  "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                  "guidance": "",
+                  "examples": [
+                        "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessService"
+            },
+            {
+                  "required": false,
+                  "title": "Organisation Access Request Cost",
+                  "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessRequestCost"
+            },
+            {
+                  "required": false,
+                  "title": "Access Request Duration",
+                  "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "LESS 1 WEEK",
+                              "1-2 WEEKS",
+                              "2-4 WEEKS",
+                              "1-2 MONTHS",
+                              "2-6 MONTHS",
+                              "MORE 6 MONTHS",
+                              "VARIABLE",
+                              "NOT APPLICABLE",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "accessibility.access.deliveryLeadTime"
+            },
+            {
+                  "required": true,
+                  "title": "Jurisdiction",
+                  "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.jurisdiction"
+            },
+            {
+                  "required": true,
+                  "title": "Data Controller",
+                  "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.dataController"
+            },
+            {
+                  "required": false,
+                  "title": "Data Processor",
+                  "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.dataProcessor"
+            },
+            {
+                  "required": true,
+                  "title": "Controlled Vocabulary",
+                  "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.vocabularyEncodingScheme"
+            },
+            {
+                  "required": true,
+                  "title": "Conforms To",
+                  "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                  "guidance": "",
+                  "examples": [
+                        "LOCAL,NHS DATA DICTIONARY"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.conformsTo"
+            },
+            {
+                  "required": true,
+                  "title": "Language",
+                  "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.language"
+            },
+            {
+                  "required": true,
+                  "title": "Format",
+                  "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.format"
+            },
+            {
+                  "required": false,
+                  "title": "Linked Datasets",
+                  "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate \u201cALL\u201d and the onboarding portal will automate linkage across the datasets submitted.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "enrichmentAndLinkage.qualifiedRelation"
+            },
+            {
+                  "required": false,
+                  "title": "Derivations",
+                  "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "enrichmentAndLinkage.derivation"
+            },
+            {
+                  "required": false,
+                  "title": "Tools",
+                  "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "enrichmentAndLinkage.tools"
+            },
+            {
+                  "required": true,
+                  "title": "Statistical Population",
+                  "description": "Please select one of the following statistical populations for you observation",
+                  "guidance": "",
+                  "examples": [
+                        "PERSONS"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "PERSONS",
+                              "EVENTS",
+                              "FINDINGS"
+                        ]
+                  },
+                  "location": "observations.observedNode"
+            },
+            {
+                  "required": true,
+                  "title": "Measured Value",
+                  "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "observations.measuredValue"
+            },
+            {
+                  "required": false,
+                  "title": "Disambiguating Description",
+                  "description": "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "AbstractText",
+                        "maxLength": 500,
+                        "minLength": 5,
+                        "type": "string"
+                  },
+                  "location": "observations.disambiguatingDescription"
+            },
+            {
+                  "required": true,
+                  "title": "Observation Date",
+                  "description": "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "date",
+                  "location": "observations.observationDate"
+            },
+            {
+                  "required": true,
+                  "title": "Measured Property",
+                  "description": "Initially this will be defaulted to \"COUNT\"",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "title": "MeasuredProperty"
+                  },
+                  "location": "observations.measuredProperty"
+            },
+            {
+                  "required": false,
+                  "title": "Data Categories",
+                  "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Biological samples",
+                              "Survey data",
+                              "Imaging data",
+                              "Medical records",
+                              "National registries",
+                              "Genealogical records",
+                              "Physiological/Biochemical measurements",
+                              "Other"
+                        ]
+                  },
+                  "location": "tissuesSampleCollection.dataCategories"
+            },
+            {
+                  "required": false,
+                  "title": "Material Type",
+                  "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Blood",
+                              "DNA",
+                              "Faeces",
+                              "Immortalized Cell Lines",
+                              "Isolated Pathogen",
+                              "Other",
+                              "Plasma",
+                              "RNA",
+                              "Saliva",
+                              "Serum",
+                              "Tissue (Frozen)",
+                              "Tissue (FFPE)",
+                              "Urine"
+                        ]
+                  },
+                  "location": "tissuesSampleCollection.materialType"
+            },
+            {
+                  "required": false,
+                  "title": "Creation Date",
+                  "description": "Date when the tissue sample metadata was created",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "tissuesSampleCollection.tissueSampleMetadata.creationDate"
+            },
+            {
+                  "required": false,
+                  "title": "Anatomical Site Ontology Code",
+                  "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "ICD_0_3",
+                        "pattern": "^[C\\d]{3}\\.\\d{4}\\/\\d{1,4}$",
+                        "type": "string"
+                  },
+                  "location": "tissuesSampleCollection.tissueSampleMetadata.AnatomicalSiteOntologyCode"
+            },
+            {
+                  "required": false,
+                  "title": "Collection Type",
+                  "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Case-control",
+                              "Cohort",
+                              "Cross-sectional",
+                              "Longitudinal",
+                              "Twin-study",
+                              "Quality control",
+                              "Population-based",
+                              "Disease specific",
+                              "Birth cohort",
+                              "Other"
+                        ]
+                  },
+                  "location": "tissuesSampleCollection.collectionType"
+            }
+      ],
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
+}

@@ -1,0 +1,4039 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../GWDM/2.0/">
+      
+      
+        <link rel="next" href="../2.1.3/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Version 2.1.2 - HDRUK Schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="hdruk" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#identifier" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HDRUK Schema" class="md-header__button md-logo" aria-label="HDRUK Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HDRUK Schema
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Version 2.1.2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HDRUK Schema" class="md-nav__button md-logo" aria-label="HDRUK Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HDRUK Schema
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Schemata
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Schemata
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Gateway Data Model (GWDM)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Gateway Data Model (GWDM)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 1.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 1.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 1.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HDRUK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            HDRUK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Version 2.1.2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Version 2.1.2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      identifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      revisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="revisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      url
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issued" class="md-nav__link">
+    <span class="md-ellipsis">
+      issued
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      modified
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      title
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      abstract
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      logo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      contactPoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memberof" class="md-nav__link">
+    <span class="md-ellipsis">
+      memberOf
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactpoint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      contactPoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      keywords
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternateidentifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      alternateIdentifiers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doiname" class="md-nav__link">
+    <span class="md-ellipsis">
+      doiName
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associatedmedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      associatedMedia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ispartof" class="md-nav__link">
+    <span class="md-ellipsis">
+      isPartOf
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      coverage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spatial" class="md-nav__link">
+    <span class="md-ellipsis">
+      spatial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typicalagerange" class="md-nav__link">
+    <span class="md-ellipsis">
+      typicalAgeRange
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physicalsampleavailability" class="md-nav__link">
+    <span class="md-ellipsis">
+      physicalSampleAvailability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#followup" class="md-nav__link">
+    <span class="md-ellipsis">
+      followup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathway" class="md-nav__link">
+    <span class="md-ellipsis">
+      pathway
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      provenance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="provenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      origin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      purpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collectionsituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      collectionSituation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      temporal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="temporal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accrualperiodicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      accrualPeriodicity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributionreleasedate" class="md-nav__link">
+    <span class="md-ellipsis">
+      distributionReleaseDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      startDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enddate" class="md-nav__link">
+    <span class="md-ellipsis">
+      endDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timelag" class="md-nav__link">
+    <span class="md-ellipsis">
+      timeLag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datauselimitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataUseLimitation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datauserequirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataUseRequirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resourcecreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      resourceCreator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      investigations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isreferencedby" class="md-nav__link">
+    <span class="md-ellipsis">
+      isReferencedBy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessrights" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessRights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessService
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessrequestcost" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessRequestCost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliveryleadtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      deliveryLeadTime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jurisdiction" class="md-nav__link">
+    <span class="md-ellipsis">
+      jurisdiction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datacontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataController
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataProcessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatandstandards" class="md-nav__link">
+    <span class="md-ellipsis">
+      formatAndStandards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="formatAndStandards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabularyencodingscheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      vocabularyEncodingScheme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conformsto" class="md-nav__link">
+    <span class="md-ellipsis">
+      conformsTo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrichmentandlinkage" class="md-nav__link">
+    <span class="md-ellipsis">
+      enrichmentAndLinkage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="enrichmentAndLinkage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qualifiedrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      qualifiedRelation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      derivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      observations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="observations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observednode" class="md-nav__link">
+    <span class="md-ellipsis">
+      observedNode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuredvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      measuredValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disambiguatingdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      disambiguatingDescription
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observationdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      observationDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuredproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      measuredProperty
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structuralmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      structuralMetadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="structuralMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datatype" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      sensitive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1.3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 2.1.3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 2.2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 2.2.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.0.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version 3.0.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Schema Change Log
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Schema Change Log
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GWDM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            GWDM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.1.change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.2.change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HDRUK
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            HDRUK
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1.3.change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1.3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.0.change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      identifier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      revisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="revisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      url
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issued" class="md-nav__link">
+    <span class="md-ellipsis">
+      issued
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      modified
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    <span class="md-ellipsis">
+      title
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      abstract
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logo" class="md-nav__link">
+    <span class="md-ellipsis">
+      logo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      contactPoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memberof" class="md-nav__link">
+    <span class="md-ellipsis">
+      memberOf
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactpoint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      contactPoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    <span class="md-ellipsis">
+      keywords
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternateidentifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      alternateIdentifiers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doiname" class="md-nav__link">
+    <span class="md-ellipsis">
+      doiName
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associatedmedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      associatedMedia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ispartof" class="md-nav__link">
+    <span class="md-ellipsis">
+      isPartOf
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      coverage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spatial" class="md-nav__link">
+    <span class="md-ellipsis">
+      spatial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typicalagerange" class="md-nav__link">
+    <span class="md-ellipsis">
+      typicalAgeRange
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physicalsampleavailability" class="md-nav__link">
+    <span class="md-ellipsis">
+      physicalSampleAvailability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#followup" class="md-nav__link">
+    <span class="md-ellipsis">
+      followup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathway" class="md-nav__link">
+    <span class="md-ellipsis">
+      pathway
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      provenance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="provenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      origin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      purpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collectionsituation" class="md-nav__link">
+    <span class="md-ellipsis">
+      collectionSituation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      temporal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="temporal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accrualperiodicity" class="md-nav__link">
+    <span class="md-ellipsis">
+      accrualPeriodicity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributionreleasedate" class="md-nav__link">
+    <span class="md-ellipsis">
+      distributionReleaseDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      startDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enddate" class="md-nav__link">
+    <span class="md-ellipsis">
+      endDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timelag" class="md-nav__link">
+    <span class="md-ellipsis">
+      timeLag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="accessibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datauselimitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataUseLimitation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datauserequirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataUseRequirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resourcecreator" class="md-nav__link">
+    <span class="md-ellipsis">
+      resourceCreator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      investigations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isreferencedby" class="md-nav__link">
+    <span class="md-ellipsis">
+      isReferencedBy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accessrights" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessRights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessService
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessrequestcost" class="md-nav__link">
+    <span class="md-ellipsis">
+      accessRequestCost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliveryleadtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      deliveryLeadTime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jurisdiction" class="md-nav__link">
+    <span class="md-ellipsis">
+      jurisdiction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datacontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataController
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataProcessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatandstandards" class="md-nav__link">
+    <span class="md-ellipsis">
+      formatAndStandards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="formatAndStandards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabularyencodingscheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      vocabularyEncodingScheme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conformsto" class="md-nav__link">
+    <span class="md-ellipsis">
+      conformsTo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    <span class="md-ellipsis">
+      format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrichmentandlinkage" class="md-nav__link">
+    <span class="md-ellipsis">
+      enrichmentAndLinkage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="enrichmentAndLinkage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qualifiedrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      qualifiedRelation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      derivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      observations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="observations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observednode" class="md-nav__link">
+    <span class="md-ellipsis">
+      observedNode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuredvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      measuredValue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disambiguatingdescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      disambiguatingDescription
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observationdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      observationDate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuredproperty" class="md-nav__link">
+    <span class="md-ellipsis">
+      measuredProperty
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structuralmetadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      structuralMetadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="structuralMetadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      elements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datatype" class="md-nav__link">
+    <span class="md-ellipsis">
+      dataType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensitive" class="md-nav__link">
+    <span class="md-ellipsis">
+      sensitive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Version 2.1.2</h1>
+
+<h2 id="identifier">identifier</h2>
+<p>System dataset identifier</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dataset identifier</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}]", "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>226fb3f1-4471-400a-8c39-2b66d46a39b6</li>
+<li>https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6</li>
+</ul>
+<h2 id="version">version</h2>
+<p>Dataset metadata version</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dataset Version</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["Semver[{'pattern': '^([0-9]+)\\.([0-9]+)\\.([0-9]+)$', 'type': 'string'}]"]</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>1.1.0</li>
+</ul>
+<h2 id="revisions">revisions</h2>
+<p>A list of persistent identifiers and version numbers for previous versions of metadata for this dataset</p>
+<h3 id="version_1">version</h3>
+<p>Version number used for previous version of this dataset</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">revision version</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["Semver[{'pattern': '^([0-9]+)\\.([0-9]+)\\.([0-9]+)$', 'type': 'string'}]"]</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>6.0.0</li>
+</ul>
+<h3 id="url">url</h3>
+<p>Some url with a reference to the record of a previous version of this dataset</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">revision url</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561</li>
+</ul>
+<h2 id="issued">issued</h2>
+<p>Datetime stamp of when this metadata version was initially issued</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Metadata Issued Datetime</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['datetime']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="modified">modified</h2>
+<p>Datetime stamp of when this metadata was last modified</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Last Modified Datetime</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['datetime']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">summary</h2>
+<p>Summary of metadata describing key pieces of information.</p>
+<h3 id="title">title</h3>
+<p>Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Title</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"]</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>North West London COVID-19 Patient Level Situation Report</li>
+</ul>
+<h3 id="abstract">abstract</h3>
+<p>Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Dataset Abstract</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.</li>
+</ul>
+<h3 id="publisher">publisher</h3>
+<p>This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.</p>
+<h4 id="identifier_1">identifier</h4>
+<p>Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the “suggest and institute” function here: https://www.grid.ac/institutes#</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Identifier</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="name">name</h4>
+<p>Name of the organisation</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Name</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="logo">logo</h4>
+<p>Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Logo</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="description">description</h4>
+<p>Please provide a URL that describes the organisation.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Description</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="contactpoint">contactPoint</h4>
+<p>Organisation contact point(s)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Contact Point</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="memberof">memberOf</h4>
+<p>Please indicate if the organisation is an Alliance Member or a Hub.'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Membership</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["MemberOf['HUB','ALLIANCE','OTHER','NCS']", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contactpoint_1">contactPoint</h3>
+<p>Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Contact Point</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>SAILDatabank@swansea.ac.uk</li>
+</ul>
+<h3 id="keywords">keywords</h3>
+<p>Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Keywords</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>Preprints,Papers,HDR UK</li>
+</ul>
+<h3 id="alternateidentifiers">alternateIdentifiers</h3>
+<p>Alternate dataset identifiers or local identifiers</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alternate dataset identifiers</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doiname">doiName</h3>
+<p>DOI associated to this dataset</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DOI Name</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Doi[{'anyOf': [{'pattern': '^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>10.1093/ije/dyx196</li>
+</ul>
+<h2 id="documentation">documentation</h2>
+<p>Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.</p>
+<h3 id="description_1">description</h3>
+<p>A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Description</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="associatedmedia">associatedMedia</h3>
+<p>Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Associated Media</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>PDF Document that describes study protocol</li>
+</ul>
+<h3 id="ispartof">isPartOf</h3>
+<p>Please complete only if the dataset is part of a group or family</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Group</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>Hospital Episodes Statistics datasets (A&amp;E, APC, OP, AC MSDS).</li>
+</ul>
+<h2 id="coverage">coverage</h2>
+<p>This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.</p>
+<h3 id="spatial">spatial</h3>
+<p>The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Geographic Coverage</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html</li>
+</ul>
+<h3 id="typicalagerange">typicalAgeRange</h3>
+<p>Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] – [max age]' where both the minimum and maximum are whole numbers (integers).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Age Range</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["AgeRange[{'anyOf': [{'pattern': 'Not Known</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>18-90</li>
+</ul>
+<h3 id="physicalsampleavailability">physicalSampleAvailability</h3>
+<p>Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide “AVAILABILITY TO BE CONFIRMED”. If samples are not available, then please provide “NOT AVAILABLE”.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Physical Sample Availability</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>BONE MARROW</li>
+</ul>
+<h3 id="followup">followup</h3>
+<p>If known, what is the typical time span that a patient appears in the dataset (follow up period)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Followup</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','&gt; 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pathway">pathway</h3>
+<p>Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pathway</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="provenance">provenance</h2>
+<p>Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.</p>
+<h3 id="origin">origin</h3>
+<p>Coverate by origin (geographical and situations)</p>
+<h4 id="purpose">purpose</h4>
+<p>Please indicate the purpose(s) that the dataset was collected.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Purpose</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="source">source</h4>
+<p>Please indicate the source of the data extraction</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="collectionsituation">collectionSituation</h4>
+<p>Please indicate the setting(s) where data was collected. Multiple settings may be provided</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Collection Situation Setting</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="temporal">temporal</h3>
+<p>Dates and other temporal coverage information</p>
+<h4 id="accrualperiodicity">accrualPeriodicity</h4>
+<p>Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or “on-demand” please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Periodicity</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="distributionreleasedate">distributionReleaseDate</h4>
+<p>Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Release Date</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">['date', 'datetime', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="startdate">startDate</h4>
+<p>The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Start Date</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['date', 'datetime', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enddate">endDate</h4>
+<p>The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">End Date</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">['date', 'datetime', "EndDateEnum['CONTINUOUS',null]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="timelag">timeLag</h4>
+<p>Please indicate the typical time-lag between an event and the data for that event appearing in the dataset</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Time Lag</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="accessibility">accessibility</h2>
+<p>Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.</p>
+<h3 id="usage">usage</h3>
+<p>This section includes information about how the data can be used and how it is currently being used</p>
+<h4 id="datauselimitation">dataUseLimitation</h4>
+<p>Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data Use Limitation</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="datauserequirements">dataUseRequirements</h4>
+<p>Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data Use Requirements</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="resourcecreator">resourceCreator</h4>
+<p>Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Citation Requirements'</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="investigations">investigations</h4>
+<p>None</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Investigations</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="isreferencedby">isReferencedBy</h4>
+<p>Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Citations</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["Doi[{'anyOf': [{'pattern': '^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]", 'str', 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="access">access</h3>
+<p>This section includes information about data access</p>
+<h4 id="accessrights">accessRights</h4>
+<p>Please provide details for the data access rights</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Access Rights</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="accessservice">accessService</h4>
+<p>Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Access Service</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide</li>
+</ul>
+<h4 id="accessrequestcost">accessRequestCost</h4>
+<p>Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Organisation Access Request Cost</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="deliveryleadtime">deliveryLeadTime</h4>
+<p>Please provide an indication of the typical processing times based on the types of requests typically received.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Access Request Duration</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="jurisdiction">jurisdiction</h4>
+<p>Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Jurisdiction</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="datacontroller">dataController</h4>
+<p>Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data Controller</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dataprocessor">dataProcessor</h4>
+<p>A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data Processor</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formatandstandards">formatAndStandards</h3>
+<p>Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.</p>
+<h4 id="vocabularyencodingscheme">vocabularyEncodingScheme</h4>
+<p>List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Controlled Vocabulary</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="conformsto">conformsTo</h4>
+<p>List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Conforms To</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>LOCAL,NHS DATA DICTIONARY</li>
+</ul>
+<h4 id="language">language</h4>
+<p>This should list all the languages in which the dataset metadata and underlying data is made available.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Language</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="format">format</h4>
+<p>If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enrichmentandlinkage">enrichmentAndLinkage</h2>
+<p>This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.</p>
+<h3 id="qualifiedrelation">qualifiedRelation</h3>
+<p>If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate “ALL” and the onboarding portal will automate linkage across the datasets submitted.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Linked Datasets</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="derivation">derivation</h3>
+<p>Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Derivations</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tools">tools</h3>
+<p>Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Tools</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]", 'List', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="observations">observations</h2>
+<p>Multiple observations about the dataset may be provided and users are expected to provide at least one observation <br>(1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. <br>Example: <br>      &lt;b&gt; Statistical Population 1 <br>      &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 <br>      &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: “2017”"<br></p>
+<h3 id="observednode">observedNode</h3>
+<p>Please select one of the following statistical populations for you observation</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Statistical Population</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">["StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']"]</td>
+</tr>
+</tbody>
+</table>
+<p>Examples: </p>
+<ul>
+<li>PERSONS</li>
+</ul>
+<h3 id="measuredvalue">measuredValue</h3>
+<p>Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Measured Value</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['int']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disambiguatingdescription">disambiguatingDescription</h3>
+<p>If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Disambiguating Description</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">["AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]", 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observationdate">observationDate</h3>
+<p>Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Observation Date</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['date', 'datetime']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="measuredproperty">measuredProperty</h3>
+<p>Initially this will be defaulted to "COUNT"</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Measured Property</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['MeasuredProperty[{}]']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="structuralmetadata">structuralMetadata</h2>
+<p>Structural metadata about tables, columns and values</p>
+<h3 id="name_1">name</h3>
+<p>The name of a table in a dataset.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Table Name</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['str', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="description_2">description</h3>
+<p>The name of a table in a dataset.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Table Name</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">['str', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h3 id="elements">elements</h3>
+<p>The name of a table in a dataset.</p>
+<h4 id="name_2">name</h4>
+<p>The name of a column in a table.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Column Name</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['Name[{}]']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="datatype">dataType</h4>
+<p>The data type of values in the column</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data Type</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['str']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="description_3">description</h4>
+<p>A description of a column in a table.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Column Description</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">['str', 'null']</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sensitive">sensitive</h4>
+<p>A True or False value, indicating if the field is sensitive or not</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">guidance</th>
+<th style="text-align: left;">is_list</th>
+<th style="text-align: left;">required</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sensitive</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False</td>
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">['bool']</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

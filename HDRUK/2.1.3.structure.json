@@ -1,0 +1,1243 @@
+[
+      {
+            "name": "identifier",
+            "required": true,
+            "title": "Dataset identifier",
+            "description": "System dataset identifier",
+            "guidance": "",
+            "examples": [
+                  "226fb3f1-4471-400a-8c39-2b66d46a39b6",
+                  "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
+            ],
+            "type": [
+                  "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}]",
+                  "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": []
+      },
+      {
+            "name": "version",
+            "required": true,
+            "title": "Dataset Version",
+            "description": "Dataset metadata version",
+            "guidance": "",
+            "examples": [
+                  "1.1.0"
+            ],
+            "type": [
+                  "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]"
+            ],
+            "is_list": false,
+            "is_optional": false,
+            "subItems": []
+      },
+      {
+            "name": "revisions",
+            "required": true,
+            "title": "Metadata Version Revisions",
+            "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Revision"
+            ],
+            "is_list": true,
+            "is_optional": false,
+            "subItems": [
+                  {
+                        "name": "version",
+                        "required": true,
+                        "title": "revision version",
+                        "description": "Version number used for previous version of this dataset",
+                        "guidance": "",
+                        "examples": [
+                              "6.0.0"
+                        ],
+                        "type": [
+                              "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": []
+                  },
+                  {
+                        "name": "url",
+                        "required": true,
+                        "title": "revision url",
+                        "description": "Some url with a reference to the record of a previous version of this dataset",
+                        "guidance": "",
+                        "examples": [
+                              "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                        ],
+                        "type": [
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "issued",
+            "required": true,
+            "title": "Metadata Issued Datetime",
+            "description": "Datetime stamp of when this metadata version was initially issued",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "datetime"
+            ],
+            "is_list": false,
+            "is_optional": false
+      },
+      {
+            "name": "modified",
+            "required": true,
+            "title": "Last Modified Datetime",
+            "description": "Datetime stamp of when this metadata was last modified",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "datetime"
+            ],
+            "is_list": false,
+            "is_optional": false
+      },
+      {
+            "name": "summary",
+            "required": true,
+            "title": "Summary",
+            "description": "Summary of metadata describing key pieces of information.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Summary"
+            ],
+            "is_list": false,
+            "is_optional": false,
+            "subItems": [
+                  {
+                        "name": "title",
+                        "required": true,
+                        "title": "Title",
+                        "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+                        "guidance": "",
+                        "examples": [
+                              "North West London COVID-19 Patient Level Situation Report"
+                        ],
+                        "type": [
+                              "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": []
+                  },
+                  {
+                        "name": "abstract",
+                        "required": true,
+                        "title": "Dataset Abstract",
+                        "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
+                        "guidance": "",
+                        "examples": [
+                              "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                        ],
+                        "type": [
+                              "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "publisher",
+                        "required": true,
+                        "title": "Dataset publisher",
+                        "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Organisation"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": [
+                              {
+                                    "name": "identifier",
+                                    "required": false,
+                                    "title": "Organisation Identifier",
+                                    "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "name",
+                                    "required": true,
+                                    "title": "Organisation Name",
+                                    "description": "Name of the organisation",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "logo",
+                                    "required": false,
+                                    "title": "Organisation Logo",
+                                    "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "description",
+                                    "required": false,
+                                    "title": "Organisation Description",
+                                    "description": "Please provide a URL that describes the organisation.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "contactPoint",
+                                    "required": true,
+                                    "title": "Organisation Contact Point",
+                                    "description": "Organisation contact point(s)",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "memberOf",
+                                    "required": false,
+                                    "title": "Organisation Membership",
+                                    "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "MemberOf['HUB','ALLIANCE','OTHER','NCS']",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              }
+                        ]
+                  },
+                  {
+                        "name": "contactPoint",
+                        "required": true,
+                        "title": "Contact Point",
+                        "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
+                        "guidance": "",
+                        "examples": [
+                              "SAILDatabank@swansea.ac.uk"
+                        ],
+                        "type": [
+                              "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "keywords",
+                        "required": true,
+                        "title": "Keywords",
+                        "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                        "guidance": "",
+                        "examples": [
+                              "Preprints,Papers,HDR UK"
+                        ],
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "alternateIdentifiers",
+                        "required": false,
+                        "title": "Alternate dataset identifiers",
+                        "description": "Alternate dataset identifiers or local identifiers",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "doiName",
+                        "required": false,
+                        "title": "DOI Name",
+                        "description": "DOI associated to this dataset",
+                        "guidance": "",
+                        "examples": [
+                              "10.1093/ije/dyx196"
+                        ],
+                        "type": [
+                              "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "documentation",
+            "required": false,
+            "title": "Documentation",
+            "description": "Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Documentation",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "description",
+                        "required": false,
+                        "title": "Description",
+                        "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "associatedMedia",
+                        "required": false,
+                        "title": "Associated Media",
+                        "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                        "guidance": "",
+                        "examples": [
+                              "PDF Document that describes study protocol"
+                        ],
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "isPartOf",
+                        "required": false,
+                        "title": "Group",
+                        "description": "Please complete only if the dataset is part of a group or family",
+                        "guidance": "",
+                        "examples": [
+                              "Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)."
+                        ],
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "coverage",
+            "required": false,
+            "title": "Coverage",
+            "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Coverage",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "spatial",
+                        "required": false,
+                        "title": "Geographic Coverage",
+                        "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
+                        "guidance": "",
+                        "examples": [
+                              "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                        ],
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "typicalAgeRange",
+                        "required": false,
+                        "title": "Age Range",
+                        "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                        "guidance": "",
+                        "examples": [
+                              "18-90"
+                        ],
+                        "type": [
+                              "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "physicalSampleAvailability",
+                        "required": false,
+                        "title": "Physical Sample Availability",
+                        "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
+                        "guidance": "",
+                        "examples": [
+                              "BONE MARROW"
+                        ],
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "followup",
+                        "required": false,
+                        "title": "Followup",
+                        "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "pathway",
+                        "required": false,
+                        "title": "Pathway",
+                        "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "provenance",
+            "required": false,
+            "title": "Provenance",
+            "description": "Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Provenance",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "origin",
+                        "required": false,
+                        "title": "Origin Coverage",
+                        "description": "Coverate by origin (geographical and situations)",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Origin",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "purpose",
+                                    "required": false,
+                                    "title": "Purpose",
+                                    "description": "Please indicate the purpose(s) that the dataset was collected.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "source",
+                                    "required": false,
+                                    "title": "Source",
+                                    "description": "Please indicate the source of the data extraction",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "collectionSituation",
+                                    "required": false,
+                                    "title": "Collection Situation Setting",
+                                    "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "temporal",
+                        "required": false,
+                        "title": "Temporal Coverage",
+                        "description": "Dates and other temporal coverage information",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Temporal",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "distributionReleaseDate",
+                                    "required": false,
+                                    "title": "Release Date",
+                                    "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "startDate",
+                                    "required": true,
+                                    "title": "Start Date",
+                                    "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "endDate",
+                                    "required": false,
+                                    "title": "End Date",
+                                    "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "EndDateEnum['CONTINUOUS',null]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "timeLag",
+                                    "required": true,
+                                    "title": "Time Lag",
+                                    "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "publishingFrequency",
+                                    "required": true,
+                                    "title": "Publishing Frequency",
+                                    "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "accessibility",
+            "required": true,
+            "title": "Accessibility",
+            "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Accessibility"
+            ],
+            "is_list": false,
+            "is_optional": false,
+            "subItems": [
+                  {
+                        "name": "usage",
+                        "required": false,
+                        "title": "Usage",
+                        "description": "This section includes information about how the data can be used and how it is currently being used",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Usage",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "dataUseLimitation",
+                                    "required": false,
+                                    "title": "Data Use Limitation",
+                                    "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataUseRequirements",
+                                    "required": false,
+                                    "title": "Data Use Requirements",
+                                    "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "resourceCreator",
+                                    "required": false,
+                                    "title": "Citation Requirements'",
+                                    "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "investigations",
+                                    "required": false,
+                                    "title": "Investigations",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "isReferencedBy",
+                                    "required": false,
+                                    "title": "Citations",
+                                    "description": "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "str",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "access",
+                        "required": true,
+                        "title": "Access",
+                        "description": "This section includes information about data access",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Access"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": [
+                              {
+                                    "name": "accessRights",
+                                    "required": true,
+                                    "title": "Access Rights",
+                                    "description": "Please provide details for the data access rights",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "accessService",
+                                    "required": false,
+                                    "title": "Access Service",
+                                    "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                                    "guidance": "",
+                                    "examples": [
+                                          "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                                    ],
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "accessRequestCost",
+                                    "required": false,
+                                    "title": "Organisation Access Request Cost",
+                                    "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "deliveryLeadTime",
+                                    "required": false,
+                                    "title": "Access Request Duration",
+                                    "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "jurisdiction",
+                                    "required": true,
+                                    "title": "Jurisdiction",
+                                    "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataController",
+                                    "required": true,
+                                    "title": "Data Controller",
+                                    "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataProcessor",
+                                    "required": false,
+                                    "title": "Data Processor",
+                                    "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "formatAndStandards",
+                        "required": false,
+                        "title": "Format and Standards",
+                        "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "FormatAndStandards",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "vocabularyEncodingScheme",
+                                    "required": true,
+                                    "title": "Controlled Vocabulary",
+                                    "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "conformsTo",
+                                    "required": true,
+                                    "title": "Conforms To",
+                                    "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                                    "guidance": "",
+                                    "examples": [
+                                          "LOCAL,NHS DATA DICTIONARY"
+                                    ],
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "language",
+                                    "required": true,
+                                    "title": "Language",
+                                    "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "format",
+                                    "required": true,
+                                    "title": "Format",
+                                    "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "List",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "enrichmentAndLinkage",
+            "required": false,
+            "title": "Enrichment and Linkage",
+            "description": "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "EnrichmentAndLinkage",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "qualifiedRelation",
+                        "required": false,
+                        "title": "Linked Datasets",
+                        "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate \u201cALL\u201d and the onboarding portal will automate linkage across the datasets submitted.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "derivation",
+                        "required": false,
+                        "title": "Derivations",
+                        "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "tools",
+                        "required": false,
+                        "title": "Tools",
+                        "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "List",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "observations",
+            "required": true,
+            "title": "Observations",
+            "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example:       <b> Statistical Population 1       </b> type: StatisticalPopulation populationType: Persons numConstraints: 0       <b> Statistical Population 2 </b> type: StatisticalPopulation populationType: Events numConstraints: 0 <b> Statistical Population 3 </b> type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: <b> Statistical Population 1 </b> measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d\"",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Observation"
+            ],
+            "is_list": true,
+            "is_optional": false,
+            "subItems": [
+                  {
+                        "name": "observedNode",
+                        "required": true,
+                        "title": "Statistical Population",
+                        "description": "Please select one of the following statistical populations for you observation",
+                        "guidance": "",
+                        "examples": [
+                              "PERSONS"
+                        ],
+                        "type": [
+                              "StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "measuredValue",
+                        "required": true,
+                        "title": "Measured Value",
+                        "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "int"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "disambiguatingDescription",
+                        "required": false,
+                        "title": "Disambiguating Description",
+                        "description": "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "observationDate",
+                        "required": true,
+                        "title": "Observation Date",
+                        "description": "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "date",
+                              "datetime"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "measuredProperty",
+                        "required": true,
+                        "title": "Measured Property",
+                        "description": "Initially this will be defaulted to \"COUNT\"",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "MeasuredProperty[{}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "structuralMetadata",
+            "required": false,
+            "title": "Structural Metadata",
+            "description": "Structural metadata about tables, columns and values",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "DataClass"
+            ],
+            "is_list": true,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "name",
+                        "required": true,
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "description",
+                        "required": false,
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "elements",
+                        "required": true,
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "DataElement"
+                        ],
+                        "is_list": true,
+                        "is_optional": false,
+                        "subItems": [
+                              {
+                                    "name": "name",
+                                    "required": true,
+                                    "title": "Column Name",
+                                    "description": "The name of a column in a table.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Name[{}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataType",
+                                    "required": true,
+                                    "title": "Data Type",
+                                    "description": "The data type of values in the column",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "description",
+                                    "required": false,
+                                    "title": "Column Description",
+                                    "description": "A description of a column in a table.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "sensitive",
+                                    "required": true,
+                                    "title": "Sensitive",
+                                    "description": "A True or False value, indicating if the field is sensitive or not",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "bool"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  }
+            ]
+      }
+]

@@ -1,0 +1,116 @@
+{
+      "identifier": "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}] | Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+      "version": "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]",
+      "revisions": {
+            "version": "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]",
+            "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "issued": "datetime",
+      "modified": "datetime",
+      "summary": {
+            "title": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+            "abstract": "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "publisher": {
+                  "identifier": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "name": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                  "logo": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "description": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "contactPoint": "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]] | null",
+                  "memberOf": "MemberOf['HUB','ALLIANCE','OTHER','NCS'] | null"
+            },
+            "contactPoint": "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "keywords": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters] | null",
+            "alternateIdentifiers": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]] | null",
+            "doiName": "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "datasetType": "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "datasetSubType": "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "populationSize": "int | null"
+      },
+      "documentation": {
+            "description": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "associatedMedia": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]] | null",
+            "isPartOf": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Union[hdr_schemata.definitions.HDRUK.Url.Url, NoneType, hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters, hdr_schemata.definitions.HDRUK.IsPartOfEnum.IsPartOfEnum]] | null"
+      },
+      "coverage": {
+            "spatial": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "pathway": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "followup": "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null] | null",
+            "typicalAgeRange": "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "gender": "GenderType['Male','Female','Other']",
+            "biologicalsamples": "BiologicalSampleType['Blood','Other','Urine','Saliva']",
+            "psychological": "PsychologicalType['Cognitive Function','Mental Health']",
+            "physical": "PhysicalType['Respiratory','Vision','Hearing','Musculoskeletal','Cardiovascular','Reproductive']",
+            "anthropometric": "AnthropometricType['Blood Pressure','Hip Circumference','Height','Waist Circumference','Weight']",
+            "lifestyle": "LifestylesType['Smoking','Dietary Habits','Physical Activity','Alcohol']",
+            "socioeconomic": "SocioEconomicType['Finances','Family Circumstances','Housing','Education','Marital Status','Occupation','Ethnic Group','Social Support']"
+      },
+      "provenance": {
+            "origin": {
+                  "purpose": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Purpose.Purpose] | null",
+                  "source": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Source.Source] | null",
+                  "collectionSituation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Setting.Setting] | null"
+            },
+            "temporal": {
+                  "distributionReleaseDate": "date | datetime | null",
+                  "startDate": "date | datetime | null",
+                  "endDate": "date | datetime | EndDateEnum['CONTINUOUS',null] | null",
+                  "timeLag": "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]",
+                  "publishingFrequency": "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
+            }
+      },
+      "accessibility": {
+            "usage": {
+                  "dataUseLimitation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.DataUseLimitation.DataUseLimitation] | null",
+                  "dataUseRequirements": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.DataUseRequirements.DataUseRequirements] | null",
+                  "resourceCreator": "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]] | null",
+                  "investigations": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]] | null",
+                  "isReferencedBy": "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}] | str | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Doi.Doi]] | null"
+            },
+            "access": {
+                  "accessRights": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessService": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessRequestCost": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]] | null",
+                  "deliveryLeadTime": "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null] | null",
+                  "jurisdiction": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Isocountrycode.Isocountrycode] | null",
+                  "dataController": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "dataProcessor": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "formatAndStandards": {
+                  "vocabularyEncodingScheme": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.ControlledVocabulary.ControlledVocabulary] | null",
+                  "conformsTo": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.StandardisedDataModels.StandardisedDataModels] | null",
+                  "language": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Language.Language] | null",
+                  "format": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[hdr_schemata.definitions.HDRUK.Format.Format] | null"
+            }
+      },
+      "enrichmentAndLinkage": {
+            "qualifiedRelation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Union[hdr_schemata.definitions.HDRUK.Url.Url, NoneType, hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]] | null",
+            "derivation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.AbstractText.AbstractText]] | null",
+            "tools": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]] | null"
+      },
+      "observations": {
+            "observedNode": "StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']",
+            "measuredValue": "int",
+            "disambiguatingDescription": "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "observationDate": "date | datetime",
+            "measuredProperty": "MeasuredProperty[{}]"
+      },
+      "structuralMetadata": {
+            "name": "str | null",
+            "description": "str | null",
+            "elements": {
+                  "name": "Name[{}]",
+                  "dataType": "str",
+                  "description": "str | null",
+                  "sensitive": "bool"
+            }
+      },
+      "tissuesSampleCollection": {
+            "dataCategories": "TissueDataCategoriesEnum['Biological samples','Survey data','Imaging data','Medical records','National registries','Genealogical records','Physiological/Biochemical measurements','Other']",
+            "materialType": "MaterialTypeCategories['Blood','DNA','Faeces','Immortalized Cell Lines','Isolated Pathogen','Other','Plasma','RNA','Saliva','Serum','Tissue (Frozen)','Tissue (FFPE)','Urine']",
+            "tissueSampleMetadata": {
+                  "creationDate": "date | datetime | null",
+                  "AnatomicalSiteOntologyCode": "ICD_0_3[{'anyOf': [{'pattern': '^[C\\\\d]{3}\\\\.\\\\d{4}\\\\/\\\\d{1,4}$', 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "collectionType": "TissueCollectionTypeEnum['Case-control','Cohort','Cross-sectional','Longitudinal','Twin-study','Quality control','Population-based','Disease specific','Birth cohort','Other'] | null"
+      }
+}

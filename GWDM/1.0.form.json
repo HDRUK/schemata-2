@@ -1,0 +1,962 @@
+{
+      "schema_fields": [
+            {
+                  "required": true,
+                  "title": "Gateway Identifier",
+                  "description": "Associated identifier (number) that is the BigInt key in our SQL database for the dataset version associated with this metadata",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "str",
+                  "location": "required.gatewayId"
+            },
+            {
+                  "required": true,
+                  "title": "Gateway Persistent Identifier",
+                  "description": "A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "str",
+                  "location": "required.gatewayPid"
+            },
+            {
+                  "required": true,
+                  "title": "Metadata Issued Datetime',",
+                  "description": "Datetime stamp of when this metadata version was initially issued",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "datetime",
+                  "location": "required.issued"
+            },
+            {
+                  "required": true,
+                  "title": "Last Modified Datetime",
+                  "description": "Datetime stamp of when this metadata was last modified",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "datetime",
+                  "location": "required.modified"
+            },
+            {
+                  "required": true,
+                  "title": "revision version",
+                  "description": "Version number used for previous version of this dataset",
+                  "guidance": "",
+                  "examples": [
+                        "6.0.0"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "str",
+                  "location": "required.revisions.version"
+            },
+            {
+                  "required": true,
+                  "title": "revision url",
+                  "description": "Some url with a reference to the record of a previous version of this dataset",
+                  "guidance": "",
+                  "examples": [
+                        "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "required.revisions.url"
+            },
+            {
+                  "required": true,
+                  "title": "Title",
+                  "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+                  "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report",
+                  "examples": [
+                        "North West London COVID-19 Patient Level Situation Report",
+                        "Scottish Morbidity Record (SMR)"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "summary.title"
+            },
+            {
+                  "required": true,
+                  "title": "Short Title",
+                  "description": "A shorter descriptive title of the dataset",
+                  "guidance": "",
+                  "examples": [
+                        "ONS 2011 Census Wales (CENW)"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "ShortTitle",
+                        "maxLength": 100,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.shortTitle"
+            },
+            {
+                  "required": true,
+                  "title": "Digital Object Identifier (DOI) for dataset",
+                  "description": "DOI associated to this dataset. Find out more about DOIs here: [https://www.doi.org/the-identifier/what-is-a-doi/](https://www.doi.org/the-identifier/what-is-a-doi/)",
+                  "guidance": "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **(DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.",
+                  "examples": [
+                        "10.1093/ije/dyx196"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Doi",
+                        "pattern": "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$",
+                        "type": "string"
+                  },
+                  "location": "summary.doiName"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset abstract",
+                  "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.",
+                  "guidance": "- The abstract should provide a **clear and brief descriptive** signpost for researchers who are searching for data that may be relevant to their research.\\n- The abstract should allow the reader to determine the **scope of the data collection and accurately summarise its content**.\\n- Effective abstracts should **avoid long sentences and abbreviations** where possible.\\n- **Note**: Researchers will view Titles and the first line of Abstracts (list view) when searching for datasets and choosing whether to explore their content further.\\n- **Abstracts should be different from the full description** for a dataset.\\n- **Example**: CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
+                  "examples": [
+                        "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "title": "LongAbstractText",
+                        "maxLength": 5000,
+                        "minLength": 5,
+                        "type": "string"
+                  },
+                  "location": "summary.abstract"
+            },
+            {
+                  "required": true,
+                  "title": "Keywords",
+                  "description": "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                  "guidance": "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches.",
+                  "examples": [
+                        "Outpatient Care",
+                        "Socioeconomic Deprivation",
+                        "Infant Morbidity",
+                        "Learning disability",
+                        "Primary Care Prescription",
+                        "Accident and Emergency Admissions"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "summary.keywords"
+            },
+            {
+                  "required": true,
+                  "title": "Controlled Keywords",
+                  "description": "Keywords that have been filtered and limited",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "summary.controlledKeywords"
+            },
+            {
+                  "required": true,
+                  "title": "Contact point",
+                  "description": "Please provide a valid email address that can be used to coordinate data access requests.",
+                  "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**.",
+                  "examples": [
+                        "SAILDatabank@swansea.ac.uk"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "EmailStr",
+                  "location": "summary.contactPoint"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Type",
+                  "description": "Placeholder for dataset type\"",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "DatasetType",
+                        "maxLength": 100,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.datasetType"
+            },
+            {
+                  "required": true,
+                  "title": "Description",
+                  "description": "Longer description of the dataset in detail",
+                  "guidance": "",
+                  "examples": [
+                        "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\\n\\nThis will include:\\n- Papers\\n- COVID-19 Papers\\n- COVID-19 Preprint"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "summary.description"
+            },
+            {
+                  "required": true,
+                  "title": "Publisher name",
+                  "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                  "guidance": "",
+                  "examples": [
+                        "SAIL"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Name"
+                  },
+                  "location": "summary.publisher.publisherName"
+            },
+            {
+                  "required": false,
+                  "title": "Publisher gateway id",
+                  "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.\"",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "str",
+                  "location": "summary.publisher.publisherGatewayId"
+            },
+            {
+                  "required": false,
+                  "title": "Geographic coverage",
+                  "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:\\n- For locations in the UK: [ONS standards](https://geoportal.statistics.gov.uk/datasets/ons::index-of-place-names-in-great-britain-november-2021/about)\\n- For locations in other countries: [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes)",
+                  "guidance": "- The geographical area covered by the dataset.\\n- Please provide a valid location.\\n- For locations in the UK, this location should conform to [ONS standards](https://geoportal.statistics.gov.uk/datasets/ons::index-of-place-names-in-great-britain-november-2021/about).\\n- For locations in other countries we use [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes).",
+                  "examples": [
+                        "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "coverage.spatial"
+            },
+            {
+                  "required": false,
+                  "title": "Physical Sample Availability",
+                  "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
+                  "guidance": "",
+                  "examples": [
+                        "BONE MARROW"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "coverage.physicalSampleAvailability"
+            },
+            {
+                  "required": false,
+                  "title": "Patient pathway description",
+                  "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                  "guidance": "- Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage.\\n- This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "coverage.pathway"
+            },
+            {
+                  "required": false,
+                  "title": "Followup",
+                  "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "0 - 6 MONTHS",
+                              "6 - 12 MONTHS",
+                              "1 - 10 YEARS",
+                              "> 10 YEARS",
+                              "UNKNOWN",
+                              "CONTINUOUS",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "coverage.followup"
+            },
+            {
+                  "required": false,
+                  "title": "Age Range",
+                  "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                  "guidance": "",
+                  "examples": [
+                        "18-90"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "AgeRange",
+                        "pattern": "Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])",
+                        "type": "string"
+                  },
+                  "location": "coverage.typicalAgeRange"
+            },
+            {
+                  "required": false,
+                  "title": "Purpose of dataset collection",
+                  "description": "Please indicate the purpose(s) that the dataset was collected.",
+                  "guidance": "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: Data collected in compliance with statutory requirements.\\n- **Other**: Data collected for other purpose.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.purpose"
+            },
+            {
+                  "required": false,
+                  "title": "Source of data extraction",
+                  "description": "Please indicate the source of the data extraction.",
+                  "guidance": " - **EPR**: Data Extracted from Electronic Patient Record.\\n- **Electronic survey**: Data has been extracted from electronic surveys.\\n- **LIMS**: Data has been extracted from a laboratory information management system.\\n- **Paper-based**: Data has been extracted from paper forms.\\n- **Free text NLP**: Data has been extracted from unstructured freetext using natural language processing.\\n- **Machine generated**: Data has been machine generated i.e. imaging.\\n- **Other**: Data has been extracted by other means.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.source"
+            },
+            {
+                  "required": false,
+                  "title": "Collection Situation Setting",
+                  "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "provenance.origin.collectionSituation"
+            },
+            {
+                  "required": true,
+                  "title": "Start date",
+                  "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                  "guidance": "- The start of the time period that the dataset provides coverage for.\\n- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.startDate"
+            },
+            {
+                  "required": false,
+                  "title": "End date",
+                  "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
+                  "guidance": "- The end of the time period that the dataset provides coverage for.\\n- If the dataset is **\u201cContinuous\u201d** and has no known end date, **please leave blank**.\\n- If there are **multiple cohorts** in the dataset with varying end dates, please provide the **latest date**.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.endDate"
+            },
+            {
+                  "required": true,
+                  "title": "Time lag",
+                  "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
+                  "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.\\n- **Less than 1 week**: Typical time lag of less than a week.\\n- **1-2 weeks**: Typical time-lag of one to two weeks.\\n- **2-4 weeks**: Typical time-lag of two to four weeks.\\n- **1-2 months**: Typical time-lag of one to two months.\\n- **2-6 months**: Typical time-lag of two to six months.\\n- **6 months plus**: Typical time-lag of more than six months.\\n- **Variable**: Variable time-lag.\\n- **Not applicable**: Not Applicable i.e. static dataset.\\n- **Other**: Other time-lag.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "LESS 1 WEEK",
+                              "1-2 WEEKS",
+                              "2-4 WEEKS",
+                              "1-2 MONTHS",
+                              "2-6 MONTHS",
+                              "MORE 6 MONTHS",
+                              "VARIABLE",
+                              "NO TIMELAG",
+                              "NOT APPLICABLE",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "provenance.temporal.timeLag"
+            },
+            {
+                  "required": true,
+                  "title": "Periodicity",
+                  "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "STATIC",
+                              "IRREGULAR",
+                              "CONTINUOUS",
+                              "BIENNIAL",
+                              "ANNUAL",
+                              "BIANNUAL",
+                              "QUARTERLY",
+                              "BIMONTHLY",
+                              "MONTHLY",
+                              "BIWEEKLY",
+                              "WEEKLY",
+                              "SEMIWEEKLY",
+                              "DAILY",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "provenance.temporal.accrualPeriodicity"
+            },
+            {
+                  "required": false,
+                  "title": "Distribution release date",
+                  "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
+                  "guidance": "- Please indicate the frequency the dataset is published.\\n- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.\\n- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.\\n- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.\\n- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.\\n- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.\\n- Notes: see [https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/](https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/)",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "date",
+                  "location": "provenance.temporal.distributionReleaseDate"
+            },
+            {
+                  "required": true,
+                  "title": "Data use limitation",
+                  "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the Data Use Ontology to include a value for NO LINKAGE.",
+                  "guidance": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.\\n- **General research use**: This data use limitation indicates that use is allowed for general research use for any research purpose.\\n- **Genetic studies only**: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research).\\n- **No general methods research**: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.\\n- **No restriction**: This data use limitation indicates there is no restriction on use.\\n- **Research-specific restrictions**: This data use limitation indicates that use is limited to studies of a certain research type.\\n- **Research use only**: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).\\n- **No linkage**: This data use limitation indicates there is a restriction on linking to any other datasets",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.dataUseLimitation"
+            },
+            {
+                  "required": true,
+                  "title": "Data use requirements",
+                  "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
+                  "guidance": "- Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.\\n- Please ensure that these restrictions are documented in access rights information.\\n- **Collaboration required**: This requirement indicates that the requestor must either agree to join a research consortium or collaborate with the primary study investigator(s).\\n- **Ethics approval required**: This requirement indicates that the requestor must provide documentation of local institutional review board (IRB)/ ethics review board (ERB) approval.\\n- **Geographical restrictions**: This requirement indicates that use is limited to within a specific geographic region.\\n- **Institution-specific restrictions**: This requirement indicates that use is limited to use within an approved institution.\\n- **Not for profit use**: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.\\n- **Project-specific restrictions**: This requirement indicates that use is limited to use within an approved project.\\n- **Publication moratorium**: This requirement indicates that requestor agrees not to publish results of studies until a specific date.\\n- **Publication required**: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.\\n- **Return to database or resource**: This requirement indicates that the requestor must return derived/enriched data to the database/resource.\\n- **Time limit on use**: This requirement indicates that use is approved for a specific number of months.\\n- **User-specific restriction**: This requirement indicates that use is limited to use by approved users.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.dataUseRequirement"
+            },
+            {
+                  "required": false,
+                  "title": "Citation requirements",
+                  "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
+                  "guidance": "- Please provide the text that you would like included as part of any citation that credits this dataset.\\n- This is typically just the name of the publisher. No employee details should be provided.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: National Services Scotland",
+                  "examples": [
+                        "National Services Scotland"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "ShortDescription",
+                        "maxLength": 1000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.usage.resourceCreator"
+            },
+            {
+                  "required": true,
+                  "title": "Access rights",
+                  "description": "Please provide details for the data access rights.",
+                  "guidance": "- The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.\\n- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessRights"
+            },
+            {
+                  "required": false,
+                  "title": "Access service description",
+                  "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                  "guidance": "Please provide a brief description of the data access services that are available including:\\n- environment that is currently available to researchers\\n- additional consultancy and services\\n- any indication of costs associated\\n\\n  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.\\n  **Note**: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                  "examples": [
+                        "https://re-docs.genomicsengland.co.uk/tutorials/",
+                        "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessService"
+            },
+            {
+                  "required": false,
+                  "title": "Access request cost",
+                  "description": "Please provide link(s) to a webpage or description detailing the service or cost model for processing data access requests.",
+                  "guidance": "This information should cover the costs and/or services available to different audiences (i.e. academic, commercial, non-UK, etc.). This can be in the form of text or a URL.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.accessRequestCost"
+            },
+            {
+                  "required": false,
+                  "title": "Time to dataset access",
+                  "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                  "guidance": "- **Less than 1 week**: Access request process typically processed in less than a week.\\n- **1-2 weeks**: Access request process typically processed in one to two weeks.\\n- **2-4 weeks**: Access request process typically processed in two to four weeks.\\n- **1-2 months**: Access request process typically processed in one to two months.\\n- **2-6 months**: Access request process typically processed in two to six months.\\n- **More than 6 months**: Access request process typically processed in more than six months.\\n- **Variable**: Access request lead time is variable.\\n- **Not applicable**: Access request process duration is not applicable.\\n- **Other**: If the typical timeframe does not fit into the broad ranges i.e. lightweight application vs linked data application, please choose \u201cOther\u201d and indicate the typical timeframe within the description for the dataset.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "LESS 1 WEEK",
+                              "1-2 WEEKS",
+                              "2-4 WEEKS",
+                              "1-2 MONTHS",
+                              "2-6 MONTHS",
+                              "MORE 6 MONTHS",
+                              "VARIABLE",
+                              "NOT APPLICABLE",
+                              "OTHER",
+                              null
+                        ]
+                  },
+                  "location": "accessibility.access.deliveryLeadTime"
+            },
+            {
+                  "required": true,
+                  "title": "Jurisdiction",
+                  "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                  "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.jurisdiction"
+            },
+            {
+                  "required": true,
+                  "title": "Data Controller",
+                  "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England",
+                  "examples": [
+                        "NHS England"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.dataController"
+            },
+            {
+                  "required": false,
+                  "title": "Data Processor",
+                  "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                  "guidance": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.\\n- Notes: Required to complete if the Data Custodian is the Data Processor rather than the Data Controller.\\n- If the Publisher is also the Data Controller please provide \u201cNot Applicable\u201d.\\n- Examples: Not Applicable, SAIL",
+                  "examples": [
+                        "Not Applicable",
+                        "SAIL"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "LongDescription",
+                        "maxLength": 50000,
+                        "minLength": 2,
+                        "type": "string"
+                  },
+                  "location": "accessibility.access.dataProcessor"
+            },
+            {
+                  "required": true,
+                  "title": "Controlled Vocabulary",
+                  "description": "Code value of the ontology vocabulary encoding",
+                  "guidance": "",
+                  "examples": [
+                        "OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.vocabularyEncodingSchemes"
+            },
+            {
+                  "required": true,
+                  "title": "Conforms To",
+                  "description": "What the vocabulary conforms to.",
+                  "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- **HL7 FHIR**: <https://www.hl7.org/fhir/>.\\n- **HL7 V2**: <https://www.hl7.org/implement/standards/product_section.cfm?section=13>.\\n- **HL7 CDA**: <https://www.hl7.org/implement/standards/product_section.cfm?section=10>.\\n- **HL7 CCOW**: <https://www.hl7.org/implement/standards/product_section.cfm?section=16>.\\n- **DICOM**: <https://www.dicomstandard.org/>.\\n- **I2B2**: <https://www.i2b2.org/>.\\n- **IHE**: <https://www.ihe.net/resources/profiles/>.\\n- **OMOP**: <https://www.ohdsi.org/data-standardization/the-common-data-model/>.\\n- **openEHR**: <https://www.openehr.org/>.\\n- **Sentinel**: <https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model>.\\n- **PCORnet**: <https://pcornet.org/data-driven-common-model/>.\\n- **CDISC**: <https://www.cdisc.org/standards/data-exchange/odm>.\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- **NHS Data Dictionary**: <https://www.datadictionary.nhs.uk/>.\\n- **NHS Scotland Data Dictionary**: <https://www.ndc.scot.nhs.uk/Data-Dictionary/>.\\n- **NHS Wales Data Dictionary**: <https://www.datadictionary.wales.nhs.uk/>.",
+                  "examples": [
+                        "LOCAL,NHS DATA DICTIONARY"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.conformsTo"
+            },
+            {
+                  "required": true,
+                  "title": "Language Code(s)",
+                  "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
+                  "guidance": "",
+                  "examples": [
+                        "en"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.languages"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset Format",
+                  "description": "Format(s) the dataset can be made available in",
+                  "guidance": "",
+                  "examples": [
+                        "CSV,JSON,SQL database table"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "accessibility.formatAndStandards.formats"
+            },
+            {
+                  "required": false,
+                  "title": "Is Generated Using",
+                  "description": "??",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.isGeneratedUsing"
+            },
+            {
+                  "required": false,
+                  "title": "Associated Media",
+                  "description": "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
+                  "guidance": "",
+                  "examples": [
+                        "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.associatedMedia"
+            },
+            {
+                  "required": false,
+                  "title": "Data Uses",
+                  "description": "??",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.dataUses"
+            },
+            {
+                  "required": false,
+                  "title": "Is Reference in",
+                  "description": "The keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.',",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.isReferenceIn"
+            },
+            {
+                  "required": false,
+                  "title": "Tools",
+                  "description": "URL of any analysis tools or models that have been created for this dataset and are available for further use",
+                  "guidance": "",
+                  "examples": [
+                        "https://conceptlibrary.saildatabank.com/"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.tools"
+            },
+            {
+                  "required": false,
+                  "title": "Derivations",
+                  "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
+                  "guidance": "",
+                  "examples": [
+                        "Data will be minimised as appropriate relative to the data access application"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isDerivedFrom"
+            },
+            {
+                  "required": false,
+                  "title": "Is PartOf",
+                  "description": "If the dataset is part of a group or family",
+                  "guidance": "",
+                  "examples": [
+                        "UKCRC Tissue Directory and Coordination Centre"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isPartOf"
+            },
+            {
+                  "required": false,
+                  "title": "Is MemberOf",
+                  "description": "Dataset is a member of XXX(?)",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isMemberOf"
+            },
+            {
+                  "required": false,
+                  "title": "Linked Datasets",
+                  "description": "Links to other datasets.",
+                  "guidance": "",
+                  "examples": [
+                        "Yes. To any SAIL dataset & reference data.,ALL"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.linkedDatasets"
+            },
+            {
+                  "required": false,
+                  "title": "Investigations",
+                  "description": "Please provide the keystone paper associated with the dataset.",
+                  "guidance": "",
+                  "examples": [
+                        "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases"
+                  ],
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
+                        "type": "string"
+                  },
+                  "location": "linkage.investigations"
+            },
+            {
+                  "required": true,
+                  "title": "Dataset volume measure",
+                  "description": "Please select one of the following broad notes for your measured observation. Indicating whether the measured property is a recording of unique persons, events, findings or scans per modality.",
+                  "guidance": "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
+                  "examples": [
+                        "Persons"
+                  ],
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "PERSONS",
+                              "EVENTS",
+                              "FINDINGS"
+                        ]
+                  },
+                  "location": "observations.observedNode"
+            },
+            {
+                  "required": true,
+                  "title": "Measured value",
+                  "description": "An integer value size of the measured property, such as \u20181000\u2019 for 1000 people in the study or \u201887\u2019 for 87 MRI scans in the dataset.",
+                  "guidance": "An integer value size of the measured property, such as \u20181000\u2019 for 1000 people in the study or \u201887\u2019 for 87 MRI scans in the dataset.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "observations.measuredValue"
+            },
+            {
+                  "required": false,
+                  "title": "Disambiguating description",
+                  "description": "If required, please provide additional details that help distinguish between similar measured properties within your dataset, for example this is useful when SNOMED CT terms do not provide sufficient detail to distinguish between parts of the dataset population. Limited to 500 characters.",
+                  "guidance": "If required please provide additional details that help distinguish between similar measured properties within your dataset, for example this is useful when SNOMED CT terms do not provide sufficient detail to distinguish between parts of the dataset population.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "AbstractText",
+                        "maxLength": 500,
+                        "minLength": 5,
+                        "type": "string"
+                  },
+                  "location": "observations.disambiguatingDescription"
+            },
+            {
+                  "required": true,
+                  "title": "Observation date",
+                  "description": "Provide the date, or datetime that the observation was made. Multiple observations of the same property can be provided, for example an observation of cumulative COVID positive cases by specimen on the 1/1/2021 with a measuredValue of 2000000, and a second observation entry on 8/2/2021 recording a measuredValue of as 3100000.",
+                  "guidance": "Provide the date, or datetime that the observation was made. Multiple observations of the same property can be provided, for example an observation of cumulative COVID positive cases by specimen on the 1/1/2021 with a measuredValue of 2000000, and a second observation entry on 8/2/2021 recording a measuredValue of as 3100000.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "date",
+                  "location": "observations.observationDate"
+            },
+            {
+                  "required": true,
+                  "title": "Measured property",
+                  "description": "Descriptive term for the observation property measured. For example, people, procedures, x-rays, or diagnosis of type 1 diabetes. This could also be a specific SNOMED CT term.",
+                  "guidance": "Descriptive term for the observation property measured.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "title": "MeasuredProperty"
+                  },
+                  "location": "observations.measuredProperty"
+            }
+      ],
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
+}
